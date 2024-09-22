@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <header>
+        <h1>Your Cart</h1>
+    </header>
+    <section class="cart">
+        <div class="cart-container" id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div class="cart-summary">
+            <p>Total: Rs <span id="cart-total">0</span></p>
+            <button id="place-order-btn" class="place-order">Place Order</button>
+        </div>
+        <div id="order-success" class="success-animation">Order placed successfully!</div>
+    </section>
+    <footer>
+        <p>© 2024 Shoplane. All rights reserved.</p>
+    </footer>
+    
+    </div>
+    <script>
+        const cartContainer = document.getElementById('cart-items');
+        const cartTotalElement = document.getElementById('cart-total');
+        const placeOrderBtn = document.getElementById('place-order-btn');
+        const orderSuccessModal = document.getElementById('order-success');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        let total = 0;
+
+        cart.forEach(product => {
+            const productElement = document.createElement("div");
+            productElement.classList.add("cart-product");
+            productElement.innerHTML = `
+                <img src="${product.imageUrl}" alt="${product.name}" class="cart-product-image">
+                <div class="cart-product-details">
+                    <h3>${product.name}</h3>
+                    <p>Brand: ${product.brand}</p>
+                    <p>Price: Rs ${product.price}</p>
+                </div>
+            `;
+            cartContainer.appendChild(productElement);
+            total += product.price;
+        });
+
+        cartTotalElement.innerText = total;
+
+        if (cart.length === 0) {
+            cartContainer.innerHTML = "<p>Your cart is empty!</p>";
+        }
+
+        placeOrderBtn.addEventListener('click', () => {
+            orderSuccessModal.style.display = 'block';
+            setTimeout(() => {
+                orderSuccessModal.style.display = 'none';
+                localStorage.removeItem('cart'); // Clear the cart
+                cartContainer.innerHTML = "<p>Your cart is empty!</p>"; // Reset cart display
+                cartTotalElement.innerText = 0; // Reset total
+            }, 2000); // Hide after 2 seconds
+        });
+    </script>
+</body>
+</html>

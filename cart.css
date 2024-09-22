@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+}
+
+header {
+  background: #ff8c00; 
+  color: #fff;
+  padding: 20px 0; 
+  text-align: center;
+  font-size: 24px; 
+}
+
+.cart {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container {
+  margin-top: 20px;
+}
+
+.cart-product {
+  background: #fff8e1; 
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center; 
+}
+
+.cart-product-image {
+  width: 80px; 
+  height: auto; 
+  margin-right: 15px; 
+}
+
+.cart-product-details {
+  flex-grow: 1; 
+}
+
+.cart-product h3 {
+  margin: 10px 0;
+  font-size: 18px; 
+}
+
+.cart-product p {
+  margin: 5px 0;
+  color: #555; 
+}
+
+.cart-summary {
+  margin-top: 20px;
+  padding: 10px;
+  background: #fff; 
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.cart-summary p {
+  font-size: 20px; 
+  font-weight: bold;
+  color: #ff8c00; 
+  text-align: center; 
+}
+
+.place-order {
+  background-color: #28a745; 
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 15px 20px; 
+  cursor: pointer; 
+  font-size: 18px; 
+  transition: background-color 0.3s, transform 0.2s; 
+  margin-top: 10px;
+  display: block; 
+  width: 100%; 
+}
+
+.place-order:hover {
+  background-color: #218838; 
+  transform: scale(1.05); 
+}
+
+.place-order-:focus {
+  outline: none; 
+}
+
+.success-animation {
+  display: none; 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 255, 0, 0.8); 
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  z-index: 1000; 
+  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s; 
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding: 5px 0;
+}
